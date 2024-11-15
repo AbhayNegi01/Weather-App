@@ -12,7 +12,7 @@ function App() {
   return (
     <div className='bg-gradient-to-tr from-blue-900 via-blue-800 to-black/40 min-h-screen py-8 dark:from-gray-900 dark:via-gray-800 dark:to-black'>
         <div className='w-full max-w-3xl mx-auto shadow-lg rounded-lg px-4 py-3 bg-gradient-to-br from-cyan-600 to-blue-700 text-white dark:from-gray-600 dark:to-black'>
-          <h1 className="text-2xl font-semibold text-center my-2">Weather App</h1>
+          <h1 className="text-2xl font-semibold text-center my-2">Weatheria</h1>
           <Input />
           {loading && <div className="ml-[360px] mb-6"><AiOutlineLoading3Quarters size={20} /></div>}
             

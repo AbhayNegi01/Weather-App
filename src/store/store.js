@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { DateTime } from 'luxon';
 
 const api_key = String(import.meta.env.VITE_API_KEY)
-const base_url = 'https://api.openweathermap.org/data/2.5/'
+const base_url = String(import.meta.env.VITE_BASE_URL)
 
 const useWeatherStore = create((set, get) => ({
     weatherData: null,
@@ -19,11 +19,11 @@ const useWeatherStore = create((set, get) => ({
     setLoading: (loading) => set({ loading }),
 
     setError: (error) => set({ error }),
-  
+
     toggleMetric: () => set((state) => ({ isCelsius: !state.isCelsius })),
-  
+
     toggleTheme: () => set((state) => ({
-      theme: state.theme === 'light' ? 'dark' : 'light'
+    theme: state.theme === 'light' ? 'dark' : 'light'
     })),
 
     formatToLocalTime: (secs, offset, format= "cccc, dd LLL yyyy' | Local time: 'hh:mm a" ) => 
@@ -115,7 +115,7 @@ const useWeatherStore = create((set, get) => ({
 
             const forecastResponse = await fetch(`${base_url}forecast?lat=${lat}&lon=${lon}&units=${unit}&appid=${api_key}`);
             if (!forecastResponse.ok)
-                 throw new Error('Forecast data not found');
+                throw new Error('Forecast data not found');
             const forecastData = await forecastResponse.json();
             const formattedForecast = get().formattedForecastData(dt, timezone, forecastData.list)
            //console.log(formattedForecast)
