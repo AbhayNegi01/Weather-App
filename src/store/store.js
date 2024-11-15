@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { DateTime } from 'luxon';
 
 const api_key = String(import.meta.env.VITE_API_KEY)
-const base_url = String(import.meta.env.VITE_BASE_URL)
+const base_url = 'https://api.openweathermap.org/data/2.5/'
 
 const useWeatherStore = create((set, get) => ({
     weatherData: null,
